@@ -2,6 +2,15 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>https://e7fendy.github.io/2024/09/12/RxSwift-for-Beginner/</loc>
+    
+    <lastmod>2024-09-13</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
     <loc>https://e7fendy.github.io/2024/09/13/iOS-Custom-back-button-with-back-gesture/</loc>
     
     <lastmod>2024-09-13</lastmod>
@@ -11,7 +20,7 @@
   </url>
   
   <url>
-    <loc>https://e7fendy.github.io/google71bbb348eef63cbb.html</loc>
+    <loc>https://e7fendy.github.io/tags/index.html</loc>
     
     <lastmod>2024-09-13</lastmod>
     
@@ -20,7 +29,7 @@
   </url>
   
   <url>
-    <loc>https://e7fendy.github.io/2024/09/12/RxSwift-for-Beginner/</loc>
+    <loc>https://e7fendy.github.io/google71bbb348eef63cbb.html</loc>
     
     <lastmod>2024-09-13</lastmod>
     

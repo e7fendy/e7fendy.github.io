@@ -18,7 +18,7 @@
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" integrity="sha256-XOqroi11tY4EFQMR9ZYwZWKj5ZXiftSx36RRuC3anlA=" crossorigin="anonymous">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.1.1/animate.min.css" integrity="sha256-PR7ttpcvz8qrF57fur/yAx1qXMFJeJFiA6pSzWi0OIE=" crossorigin="anonymous">
 
-<script class="next-config" data-name="main" type="application/json">{"hostname":"e7fendy.github.io","root":"/","images":"/images","scheme":"Pisces","darkmode":false,"version":"8.20.0","exturl":false,"sidebar":{"position":"left","width_expanded":320,"width_dual_column":240,"display":"post","padding":18,"offset":12},"hljswrap":true,"copycode":{"enable":false,"style":null},"fold":{"enable":false,"height":500},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"menu_item":"fadeInDown","post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"i18n":{"placeholder":"Searching...","empty":"We didn't find any results for the search: ${query}","hits_time":"${hits} results found in ${time} ms","hits":"${hits} results found"}}</script><script src="/js/config.js"></script>
+<script class="next-config" data-name="main" type="application/json">{"hostname":"e7fendy.github.io","root":"/","images":"/images","scheme":"Pisces","darkmode":false,"version":"8.20.0","exturl":false,"sidebar":{"position":"left","width_expanded":320,"width_dual_column":240,"display":"post","padding":18,"offset":12},"hljswrap":true,"copycode":{"enable":true,"style":null},"fold":{"enable":false,"height":500},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"menu_item":"fadeInDown","post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"i18n":{"placeholder":"Searching...","empty":"We didn't find any results for the search: ${query}","hits_time":"${hits} results found in ${time} ms","hits":"${hits} results found"}}</script><script src="/js/config.js"></script>
 
     <meta name="description" content="Thinking of clean architecture, MVVM architecture is one of the best choices. One of the popular framework to do it is using functional programming. In iOS, I will use RxSwift. Before starting it, I">
 <meta property="og:type" content="article">
@@ -30,7 +30,7 @@
 <meta property="og:image" content="https://repository-images.githubusercontent.com/33569135/fc5b4f00-4c4c-11eb-837b-fdda10a8f788">
 <meta property="og:image" content="https://cdn.prod.website-files.com/5db1c0d5ca3871e8fd1a7b66/5e4d450cb81b57a86a36500c_--------------2018-07-26---13-21-17.png">
 <meta property="article:published_time" content="2024-09-12T03:24:02.000Z">
-<meta property="article:modified_time" content="2024-09-13T04:25:02.780Z">
+<meta property="article:modified_time" content="2024-09-13T08:52:12.293Z">
 <meta property="article:author" content="Fendy Wu">
 <meta property="article:tag" content="iOS">
 <meta property="article:tag" content="RxSwift">
@@ -71,6 +71,9 @@
       <header class="header" itemscope itemtype="http://schema.org/WPHeader"><div class="site-brand-container">
   <div class="site-nav-toggle">
     <div class="toggle" aria-label="Toggle navigation bar" role="button">
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
     </div>
   </div>
 
@@ -92,6 +95,10 @@
 
 
 
+<nav class="site-nav">
+  <ul class="main-menu menu"><li class="menu-item menu-item-home"><a href="/" rel="section"><i class="fa fa-home fa-fw"></i>Home</a></li><li class="menu-item menu-item-tags"><a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>Tags</a></li><li class="menu-item menu-item-archives"><a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>Archives</a></li>
+  </ul>
+</nav>
 
 
 
@@ -134,8 +141,9 @@
         </a>
       </div>
       <div class="site-state-item site-state-tags">
+          <a href="/tags/">
         <span class="site-state-item-count">2</span>
-        <span class="site-state-item-name">tags</span>
+        <span class="site-state-item-name">tags</span></a>
       </div>
   </nav>
 </div>
@@ -205,7 +213,7 @@
         <i class="far fa-calendar-check"></i>
       </span>
       <span class="post-meta-item-text">Edited on</span>
-      <time title="Modified: 2024-09-13 12:25:02" itemprop="dateModified" datetime="2024-09-13T12:25:02+08:00">2024-09-13</time>
+      <time title="Modified: 2024-09-13 16:52:12" itemprop="dateModified" datetime="2024-09-13T16:52:12+08:00">2024-09-13</time>
     </span>
 
   
@@ -233,6 +241,7 @@
     
     <div class="post-body" itemprop="articleBody"><p><img src="https://repository-images.githubusercontent.com/33569135/fc5b4f00-4c4c-11eb-837b-fdda10a8f788" alt="RxSwift"></p>
 <p>Thinking of clean architecture, MVVM architecture is one of the best choices. One of the popular framework to do it is using functional programming. In iOS, I will use RxSwift. Before starting it, I need to know some basic knowledges of RxSwift.</p>
+<span id="more"></span>
 <h2 id="Introduction"><a href="#Introduction" class="headerlink" title="Introduction"></a>Introduction</h2><p>RxSwift is a reactive programming or functional programming for Swift, a part of <a target="_blank" rel="noopener" href="https://reactivex.io/">ReactiveX</a>.</p>
 <p>In 2011, <a target="_blank" rel="noopener" href="https://reactivex.io/">ReactiveX</a> (also known as Reactive Extensions) was created by Microsoft. It is a library for composing asynchronous and event-based programs by using observable sequences.</p>
 <h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><p><img src="https://cdn.prod.website-files.com/5db1c0d5ca3871e8fd1a7b66/5e4d450cb81b57a86a36500c_--------------2018-07-26---13-21-17.png" alt="Flow"></p>
@@ -270,8 +279,8 @@
 
     <footer class="post-footer">
           <div class="post-tags">
-              <a href="/tags/iOS/" rel="tag"># iOS</a>
-              <a href="/tags/RxSwift/" rel="tag"># RxSwift</a>
+              <a href="/tags/iOS/" rel="tag"><i class="fa fa-tag"></i> iOS</a>
+              <a href="/tags/RxSwift/" rel="tag"><i class="fa fa-tag"></i> RxSwift</a>
           </div>
 
         
