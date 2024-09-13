@@ -122,7 +122,7 @@
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
         <a href="/archives/">
-          <span class="site-state-item-count">1</span>
+          <span class="site-state-item-count">2</span>
           <span class="site-state-item-name">posts</span>
         </a>
       </div>
@@ -152,6 +152,98 @@
     </div>
 
     <div class="main-inner index posts-expand">
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="https://e7fendy.github.io/2024/09/13/iOS-Custom-back-button-with-back-gesture/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.jpg">
+      <meta itemprop="name" content="Fendy Wu">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Fendy Wu">
+      <meta itemprop="description" content="Blog for developers">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="undefined | Fendy Wu">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/2024/09/13/iOS-Custom-back-button-with-back-gesture/" class="post-title-link" itemprop="url">[iOS] Custom back button with back gesture</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">Posted on</span>
+      
+
+      <time title="Created: 2024-09-13 15:12:21 / Modified: 15:15:45" itemprop="dateCreated datePublished" datetime="2024-09-13T15:12:21+08:00">2024-09-13</time>
+    </span>
+
+  
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="far fa-comment"></i>
+      </span>
+      <span class="post-meta-item-text">Disqus: </span>
+    
+    <a title="disqus" href="/2024/09/13/iOS-Custom-back-button-with-back-gesture/#disqus_thread" itemprop="discussionUrl">
+      <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2024/09/13/iOS-Custom-back-button-with-back-gesture/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <p><img src="https://qiita-image-store.s3.ap-northeast-1.amazonaws.com/0/41979/38ab18db-6d92-9c06-4838-9ee6b2df5187.png" alt="Img"></p>
+<p>When I want to change the default iOS back button, I need to hide the default back button. This causes the back gesture is also disabled. Therefore, I need to keep the back gesture and make the change.</p>
+<p>To make these happen, I do steps:</p>
+<ul>
+<li>Disable the default back button</li>
+<li>Set the new back button to left bar item</li>
+<li>Enable the navigation interaction gesture for back gesture</li>
+</ul>
+<p>Here is the codes (Swift 5)</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">class MyViewController: UIGestureRecognizerDelegate &#123;</span><br><span class="line">  self.navigationItem.hidesBackButton = true</span><br><span class="line"></span><br><span class="line">  let image = UIImage(systemName: &quot;chevron.backward&quot;)</span><br><span class="line">  let backBarItem = UIBarButtonItem(image: image, style: .plain, target: nil, action: nil)</span><br><span class="line">  self.navigationItem.leftBarButtonItem = backBarItem</span><br><span class="line"></span><br><span class="line">  self.navigationController?.interactivePopGestureRecognizer?.delegate = self</span><br><span class="line">  </span><br><span class="line">  func gestureRecognizer(_ gestureRecognizer: UIGestureRecognizer, shouldBeRequiredToFailBy otherGestureRecognizer: UIGestureRecognizer) -&gt; Bool &#123;</span><br><span class="line">     return true</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
 
     
 
