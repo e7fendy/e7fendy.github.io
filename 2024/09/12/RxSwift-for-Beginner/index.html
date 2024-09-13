@@ -20,26 +20,32 @@
 
 <script class="next-config" data-name="main" type="application/json">{"hostname":"e7fendy.github.io","root":"/","images":"/images","scheme":"Gemini","darkmode":true,"version":"8.20.0","exturl":false,"sidebar":{"position":"left","width_expanded":320,"width_dual_column":240,"display":"post","padding":18,"offset":12},"hljswrap":true,"copycode":{"enable":false,"style":null},"fold":{"enable":false,"height":500},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"menu_item":"fadeInDown","post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"i18n":{"placeholder":"Searching...","empty":"We didn't find any results for the search: ${query}","hits_time":"${hits} results found in ${time} ms","hits":"${hits} results found"}}</script><script src="/js/config.js"></script>
 
-    <meta name="description" content="Blog for developers">
-<meta property="og:type" content="website">
-<meta property="og:title" content="Fendy Wu">
-<meta property="og:url" content="https://e7fendy.github.io/index.html">
+    <meta name="description" content="Thinking of clean architecture, MVVM architecture is one of the best choices. One of the popular framework to do it is using functional programming. In iOS, I will use RxSwift. Before starting it, I">
+<meta property="og:type" content="article">
+<meta property="og:title" content="RxSwift for Beginner">
+<meta property="og:url" content="https://e7fendy.github.io/2024/09/12/RxSwift-for-Beginner/index.html">
 <meta property="og:site_name" content="Fendy Wu">
-<meta property="og:description" content="Blog for developers">
+<meta property="og:description" content="Thinking of clean architecture, MVVM architecture is one of the best choices. One of the popular framework to do it is using functional programming. In iOS, I will use RxSwift. Before starting it, I">
 <meta property="og:locale" content="en_US">
+<meta property="og:image" content="https://repository-images.githubusercontent.com/33569135/fc5b4f00-4c4c-11eb-837b-fdda10a8f788">
+<meta property="og:image" content="https://cdn.prod.website-files.com/5db1c0d5ca3871e8fd1a7b66/5e4d450cb81b57a86a36500c_--------------2018-07-26---13-21-17.png">
+<meta property="article:published_time" content="2024-09-12T03:24:02.000Z">
+<meta property="article:modified_time" content="2024-09-13T02:24:42.293Z">
 <meta property="article:author" content="Fendy Wu">
-<meta property="article:tag" content="fendywu,e7fendy,e7dev">
+<meta property="article:tag" content="iOS">
+<meta property="article:tag" content="RxSwift">
 <meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://repository-images.githubusercontent.com/33569135/fc5b4f00-4c4c-11eb-837b-fdda10a8f788">
 
 
-<link rel="canonical" href="https://e7fendy.github.io/">
+<link rel="canonical" href="https://e7fendy.github.io/2024/09/12/RxSwift-for-Beginner/">
 
 
 
-<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":true,"isPost":false,"lang":"en","comments":"","permalink":"","path":"index.html","title":""}</script>
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"en","comments":true,"permalink":"https://e7fendy.github.io/2024/09/12/RxSwift-for-Beginner/","path":"2024/09/12/RxSwift-for-Beginner/","title":"RxSwift for Beginner"}</script>
 
 <script class="next-config" data-name="calendar" type="application/json">""</script>
-<title>Fendy Wu - Nothing is possible</title>
+<title>RxSwift for Beginner | Fendy Wu</title>
   
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-MK9FVEWLJV"></script>
   <script class="next-config" data-name="google_analytics" type="application/json">{"tracking_id":"G-MK9FVEWLJV","only_pageview":false,"measure_protocol_api_secret":null}</script>
@@ -72,7 +78,7 @@
 
     <a href="/" class="brand" rel="start">
       <i class="logo-line"></i>
-      <h1 class="site-title">Fendy Wu</h1>
+      <p class="site-title">Fendy Wu</p>
       <i class="logo-line"></i>
     </a>
       <p class="site-subtitle" itemprop="description">Nothing is possible</p>
@@ -95,7 +101,7 @@
   
   <aside class="sidebar">
 
-    <div class="sidebar-inner sidebar-overview-active">
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
       <ul class="sidebar-nav">
         <li class="sidebar-nav-toc">
           Table of Contents
@@ -108,6 +114,7 @@
       <div class="sidebar-panel-container">
         <!--noindex-->
         <div class="post-toc-wrap sidebar-panel">
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Introduction"><span class="nav-number">1.</span> <span class="nav-text">Introduction</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Quick-Start"><span class="nav-number">2.</span> <span class="nav-text">Quick Start</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#TL-DR"><span class="nav-number">3.</span> <span class="nav-text">TL;DR</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Observables"><span class="nav-number">3.1.</span> <span class="nav-text">Observables</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Observers"><span class="nav-number">3.2.</span> <span class="nav-text">Observers</span></a></li></ol></li></ol></div>
         </div>
         <!--/noindex-->
 
@@ -151,16 +158,17 @@
 
     </div>
 
-    <div class="main-inner index posts-expand">
+    <div class="main-inner post posts-expand">
 
-    
+
+  
 
 
 <div class="post-block">
   
   
 
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="en">
     <link itemprop="mainEntityOfPage" href="https://e7fendy.github.io/2024/09/12/RxSwift-for-Beginner/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -174,13 +182,13 @@
     </span>
 
     <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content="undefined | Fendy Wu">
+      <meta itemprop="name" content="RxSwift for Beginner | Fendy Wu">
       <meta itemprop="description" content="">
     </span>
       <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/2024/09/12/RxSwift-for-Beginner/" class="post-title-link" itemprop="url">RxSwift for Beginner</a>
-        </h2>
+        <h1 class="post-title" itemprop="name headline">
+          RxSwift for Beginner
+        </h1>
 
         <div class="post-meta-container">
           <div class="post-meta">
@@ -223,8 +231,7 @@
     
     
     
-    <div class="post-body" itemprop="articleBody">
-          <p><img src="https://repository-images.githubusercontent.com/33569135/fc5b4f00-4c4c-11eb-837b-fdda10a8f788" alt="RxSwift"></p>
+    <div class="post-body" itemprop="articleBody"><p><img src="https://repository-images.githubusercontent.com/33569135/fc5b4f00-4c4c-11eb-837b-fdda10a8f788" alt="RxSwift"></p>
 <p>Thinking of clean architecture, MVVM architecture is one of the best choices. One of the popular framework to do it is using functional programming. In iOS, I will use RxSwift. Before starting it, I need to know some basic knowledges of RxSwift.</p>
 <h2 id="Introduction"><a href="#Introduction" class="headerlink" title="Introduction"></a>Introduction</h2><p>RxSwift is a reactive programming or functional programming for Swift, a part of <a target="_blank" rel="noopener" href="https://reactivex.io/">ReactiveX</a>.</p>
 <p>In 2011, <a target="_blank" rel="noopener" href="https://reactivex.io/">ReactiveX</a> (also known as Reactive Extensions) was created by Microsoft. It is a library for composing asynchronous and event-based programs by using observable sequences.</p>
@@ -255,7 +262,6 @@
 </ul>
 <p>Next, I’ll show more details, like DisposeBag, Publisher, Subject, etc.</p>
 
-      
     </div>
 
     
@@ -263,8 +269,13 @@
     
 
     <footer class="post-footer">
-        <div class="post-eof"></div>
-      
+          <div class="post-tags">
+              <a href="/tags/iOS/" rel="tag"># iOS</a>
+              <a href="/tags/RxSwift/" rel="tag"># RxSwift</a>
+          </div>
+
+        
+
     </footer>
   </article>
 </div>
@@ -273,6 +284,12 @@
 
 
 
+
+    
+  <div class="comments" id="disqus_thread">
+    <noscript>Please enable JavaScript to view the comments powered by Disqus.</noscript>
+  </div>
+  
 </div>
   </main>
 
