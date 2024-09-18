@@ -199,7 +199,7 @@
       <span class="post-meta-item-text">Posted on</span>
       
 
-      <time title="Created: 2024-09-18 15:18:53 / Modified: 21:41:28" itemprop="dateCreated datePublished" datetime="2024-09-18T15:18:53+08:00">2024-09-18</time>
+      <time title="Created: 2024-09-18 15:18:53 / Modified: 21:48:31" itemprop="dateCreated datePublished" datetime="2024-09-18T15:18:53+08:00">2024-09-18</time>
     </span>
 
   
@@ -232,52 +232,14 @@
 <li>The products, like digital items, subscription, feature-enabled, must use iOS In-app purchase.</li>
 <li>Apple will charge the transaction.</li>
 </ul>
-<p>To implement the IAP, we need to use <a target="_blank" rel="noopener" href="https://developer.apple.com/documentation/storekit">StoreKit</a> framework. StoreKit framework includes IAP, App transaction, Messages, Reviews, Recommendations, Ad network attribution.</p>
-<p><img src="https://docs-assets.developer.apple.com/published/44a2bc3082/storeKit_InApp_Purchase_Overview_2x@2x.png" alt="Flow"></p>
-<h2 id="Products"><a href="#Products" class="headerlink" title="Products"></a>Products</h2><p>Some products must use IAP without excuse, if not, the submission will be refused.</p>
-<ul>
-<li><strong>Consumable</strong>: Products that can be purchased many times (extra lives, items, etc).</li>
-<li><strong>Non Consumable</strong>: Products that is only purchase once and do not expire (advanced features, online courses, etc).</li>
-<li><strong>Auto Renew Subscriptions</strong>: Products that provides subscription-based and can automatically renew (Monthly&#x2F;Yearly Subscription, etc).</li>
-<li><strong>Non Renewable Subscriptions</strong>: Products that can be subscribed once and there is no automatically renew (3-years Subscription, etc).</li>
-</ul>
-<p><img src="https://bugfender.com/wp-content/uploads/2024/02/INApp_Purchase_-_Page_2-1024x364.webp" alt="Diagram"></p>
-<h2 id="Transaction"><a href="#Transaction" class="headerlink" title="Transaction"></a>Transaction</h2><p>Transaction flow consists of three stages:</p>
-<ul>
-<li>Retrieves product information.</li>
-<li>Requests payment.</li>
-<li>Delivers products.</li>
-</ul>
-<p><img src="https://docs-assets.developer.apple.com/published/5f67d2690b/IAPPG-migration-1@2x.png" alt="Flow"></p>
-<h3 id="Payment-Flow"><a href="#Payment-Flow" class="headerlink" title="Payment Flow"></a>Payment Flow</h3><p>To do the flow above, I need a server to store my product information and handle the payment process. I’ll use <a target="_blank" rel="noopener" href="https://www.revenuecat.com/">RevenueCat</a> as my transaction server. What the server needs to do is to <strong>validate the payment receive</strong> and <strong>update the user&#x2F;product state</strong>.</p>
-<p><img src="https://revenuecat.dreamhosters.com/wp-content/uploads/2022/02/60706bf8c76297fa7775ece4_5e1d78f32cfebf111c51ee1f_Untitled-da6e7b32-7097-44ea-8d08-7fa723260194.png" alt="Flow"></p>
-<h3 id="Validation-Flow"><a href="#Validation-Flow" class="headerlink" title="Validation Flow"></a>Validation Flow</h3><p>When user does the transaction, StoreKit will make the payment of the transaction. Meanwhile, StoreKit will also send the transaction to AppStore as a receipt. AppStore will do the receipt verification. To do so, AppStore will directly send the receipt data to our server for validation. Also, our server can store the data to update the state.</p>
-<p><img src="https://revenuecat.dreamhosters.com/wp-content/uploads/2022/02/60706bf8c76297ad8f75ecf2_5e1d78f4a12b0a5caa85ac2b_Untitled-d292fc14-4319-4a7a-9bd1-996203fb710b.png" alt="Flow"></p>
-<h3 id="User-Receipt"><a href="#User-Receipt" class="headerlink" title="User Receipt"></a>User Receipt</h3><p>On the other hand, the user will receive the receipt that looks like this.</p>
-<p><img src="https://d2duuy9yo5pldo.cloudfront.net/vizor/b45b5841-c71f-4ce8-a84d-925f22fc4656-t.png" alt="Receipt"></p>
-<h3 id="Apple-Store-Receipt-File"><a href="#Apple-Store-Receipt-File" class="headerlink" title="Apple Store Receipt File"></a>Apple Store Receipt File</h3><p>But, for server, the receive data (what we call “<strong>Apple Store Receipt File</strong>“) will look like this. It is a based64 encoded data.</p>
-<p><img src="https://cg2010studio.com/wp-content/uploads/2018/05/ios-iap-e9a997e8ad89e799bce7a5a8-iap-verify-receipt.png" alt="ReceiptData"></p>
-<p>The Apple Store Receipt File is based on PKCS #7 container. After parsing and extracting it, there are three parts:</p>
-<ul>
-<li>Certificates</li>
-<li>Signature</li>
-<li>Receipt Data (hashed)</li>
-</ul>
-<p><img src="https://miro.medium.com/v2/resize:fit:720/format:webp/1*TMDqzfThMD8sDGqyUBum0A.png" alt="ReceiptData"></p>
-<p>Meanwhile, to create the Apple Store Receipt File, we need:</p>
-<ul>
-<li><strong>App Store Private Key</strong>: Only Apple has this key.</li>
-<li><strong>Public Keys (Certificates)</strong>: Setup on AppStore.<br>  <img src="https://www.revenuecat.com/docs/assets/images/SCR-20240327-jvrs-6dc3b6a68017f6cfc97178581812a90f.png" alt="Certificate"></li>
-</ul>
-<p>When generating Apple Store Receipt File, the receipt data will be hashed, added signature and public keys.</p>
-<p><img src="https://miro.medium.com/v2/resize:fit:720/format:webp/1*9PI_PMNkvv7pg9yZOPAMuw.png" alt="ReceiptFile"></p>
-<p>Therefore, to validate the receipt, we need to check if the receipt data (inside the Apple Store Receipt File) is the same as the receipt data that Apple signed. To do so, we must do the hash matches, as below:</p>
-<p><img src="https://miro.medium.com/v2/resize:fit:720/format:webp/1*a1YY32UQpFrZJ7WI9M41eA.png" alt="Validate"></p>
-<p>After the validation has no problem, I can extract the receipt data. The signed receipt data is an <a target="_blank" rel="noopener" href="https://developer.apple.com/library/archive/releasenotes/General/ValidateAppStoreReceipt/Chapters/ReceiptFields.html">ASN.1 container by Apple</a>. It is better to use a parser, see <a target="_blank" rel="noopener" href="https://www.revenuecat.com/blog/engineering/introducing-receiptparser-for-apple-platforms/">ReceiptParser by RevenueCat</a>.</p>
-<p><img src="https://www.objc.io/images/issue-17/ReceiptStructure@2x_c1f06ab.png" alt="ASN.1"></p>
-<p>After the validation, the receipt info can be parsed correctly. For more, you can check <a target="_blank" rel="noopener" href="https://medium.com/revenuecat-blog/dissecting-an-app-store-receipt-b1e9c5136482">https://medium.com/revenuecat-blog/dissecting-an-app-store-receipt-b1e9c5136482</a> by RevenueCat.</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br></pre></td><td class="code"><pre><span class="line">&#123;&#x27;application_version&#x27;: &#x27;1&#x27;,</span><br><span class="line"> &#x27;bundle_id&#x27;: &#x27;com.jacobeiting.subtester&#x27;,</span><br><span class="line"> &#x27;creation_date&#x27;: &#x27;2017-10-03T00:58:43Z&#x27;,</span><br><span class="line"> &#x27;in_app&#x27;: [&#123;&#x27;cancellation_date&#x27;: &#x27;&#x27;,</span><br><span class="line">             &#x27;expires_date&#x27;: &#x27;2017-10-02T23:16:23Z&#x27;,</span><br><span class="line">             &#x27;original_purchase_date&#x27;: &#x27;2017-10-02T23:08:25Z&#x27;,</span><br><span class="line">             &#x27;original_transaction_id&#x27;: &#x27;1000000339835086&#x27;,</span><br><span class="line">             &#x27;product_id&#x27;: &#x27;onemonth_freetrial&#x27;,</span><br><span class="line">             &#x27;purchase_date&#x27;: &#x27;2017-10-02T23:11:23Z&#x27;,</span><br><span class="line">             &#x27;quantity&#x27;: 1,</span><br><span class="line">             &#x27;transaction_id&#x27;: &#x27;1000000339835183&#x27;,</span><br><span class="line">             &#x27;web_order_line_item_id&#x27;: 1000000036447552&#125;,</span><br><span class="line">            &#123;&#x27;cancellation_date&#x27;: &#x27;&#x27;,</span><br><span class="line">             &#x27;expires_date&#x27;: &#x27;2017-10-02T23:21:23Z&#x27;,</span><br><span class="line">             &#x27;original_purchase_date&#x27;: &#x27;2017-10-02T23:08:25Z&#x27;,</span><br><span class="line">             &#x27;original_transaction_id&#x27;: &#x27;1000000339835086&#x27;,</span><br><span class="line">             &#x27;product_id&#x27;: &#x27;onemonth_freetrial&#x27;,</span><br><span class="line">             &#x27;purchase_date&#x27;: &#x27;2017-10-02T23:16:23Z&#x27;,</span><br><span class="line">             &#x27;quantity&#x27;: 1,</span><br><span class="line">             &#x27;transaction_id&#x27;: &#x27;1000000339835291&#x27;,</span><br><span class="line">             &#x27;web_order_line_item_id&#x27;: 1000000036447572&#125;,</span><br><span class="line">            &#123;&#x27;cancellation_date&#x27;: &#x27;&#x27;,</span><br><span class="line">             &#x27;expires_date&#x27;: &#x27;2017-10-02T23:11:23Z&#x27;,</span><br><span class="line">             &#x27;original_purchase_date&#x27;: &#x27;2017-10-02T23:08:25Z&#x27;,</span><br><span class="line">             &#x27;original_transaction_id&#x27;: &#x27;1000000339835086&#x27;,</span><br><span class="line">             &#x27;product_id&#x27;: &#x27;onemonth_freetrial&#x27;,</span><br><span class="line">             &#x27;purchase_date&#x27;: &#x27;2017-10-02T23:08:23Z&#x27;,</span><br><span class="line">             &#x27;quantity&#x27;: 1,</span><br><span class="line">             &#x27;transaction_id&#x27;: &#x27;1000000339835086&#x27;,</span><br><span class="line">             &#x27;web_order_line_item_id&#x27;: 1000000036447550&#125;],</span><br><span class="line"> &#x27;opaque_value&#x27;: b&#x27;\xdb\x81(\xb1=\xce.&lt;i\xbdkS\xc6\xbe%\x08&#x27;,</span><br><span class="line"> &#x27;original_application_version&#x27;: &#x27;1.0&#x27;,</span><br><span class="line"> &#x27;sha1_hash&#x27;: b&#x27;,\x88\x7f\x9f4\x1b\xc2\xa9W\x18\x1d\x81\x1c%\xbb\x91&quot;*\xe97&#x27;&#125;</span><br></pre></td></tr></table></figure>
-
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/2024/09/18/In-App%20Purchase%20iOS/#more" rel="contents">
+                Read more &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
       
     </div>
 
@@ -339,7 +301,7 @@
         <i class="far fa-calendar-check"></i>
       </span>
       <span class="post-meta-item-text">Edited on</span>
-      <time title="Modified: 2024-09-18 09:24:12" itemprop="dateModified" datetime="2024-09-18T09:24:12+08:00">2024-09-18</time>
+      <time title="Modified: 2024-09-18 21:48:36" itemprop="dateModified" datetime="2024-09-18T21:48:36+08:00">2024-09-18</time>
     </span>
 
   
@@ -368,14 +330,14 @@
     <div class="post-body" itemprop="articleBody">
           <p><img src="https://qiita-image-store.s3.ap-northeast-1.amazonaws.com/0/41979/38ab18db-6d92-9c06-4838-9ee6b2df5187.png" alt="Img"></p>
 <p>When I want to change the default iOS back button, I need to hide the default back button. This causes the back gesture is also disabled. Therefore, I need to keep the back gesture and make the change.</p>
-<p>To make these happen, I do steps:</p>
-<ul>
-<li>Disable the default back button</li>
-<li>Set the new back button to left bar item</li>
-<li>Enable the navigation interaction gesture for back gesture</li>
-</ul>
-<p>Here is the codes (Swift 5)</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">class MyViewController: UIGestureRecognizerDelegate &#123;</span><br><span class="line">  self.navigationItem.hidesBackButton = true</span><br><span class="line"></span><br><span class="line">  let image = UIImage(systemName: &quot;chevron.backward&quot;)</span><br><span class="line">  let backBarItem = UIBarButtonItem(image: image, style: .plain, target: nil, action: nil)</span><br><span class="line">  self.navigationItem.leftBarButtonItem = backBarItem</span><br><span class="line"></span><br><span class="line">  self.navigationController?.interactivePopGestureRecognizer?.delegate = self</span><br><span class="line">  </span><br><span class="line">  func gestureRecognizer(_ gestureRecognizer: UIGestureRecognizer, shouldBeRequiredToFailBy otherGestureRecognizer: UIGestureRecognizer) -&gt; Bool &#123;</span><br><span class="line">     return true</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/2024/09/13/iOS-Custom-back-button-with-back-gesture/#more" rel="contents">
+                Read more &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
       
     </div>
 
@@ -437,7 +399,7 @@
         <i class="far fa-calendar-check"></i>
       </span>
       <span class="post-meta-item-text">Edited on</span>
-      <time title="Modified: 2024-09-18 18:04:42" itemprop="dateModified" datetime="2024-09-18T18:04:42+08:00">2024-09-18</time>
+      <time title="Modified: 2024-09-18 21:48:45" itemprop="dateModified" datetime="2024-09-18T21:48:45+08:00">2024-09-18</time>
     </span>
 
   
@@ -466,35 +428,14 @@
     <div class="post-body" itemprop="articleBody">
           <p><img src="https://repository-images.githubusercontent.com/33569135/fc5b4f00-4c4c-11eb-837b-fdda10a8f788" alt="RxSwift"></p>
 <p>Thinking of clean architecture, MVVM architecture is one of the best choices. One of the popular framework to do it is using functional programming. In iOS, I will use RxSwift. Before starting it, I need to know some basic knowledges of RxSwift.</p>
-<h2 id="Introduction"><a href="#Introduction" class="headerlink" title="Introduction"></a>Introduction</h2><p>RxSwift is a reactive programming or functional programming for Swift, a part of <a target="_blank" rel="noopener" href="https://reactivex.io/">ReactiveX</a>.</p>
-<p>In 2011, <a target="_blank" rel="noopener" href="https://reactivex.io/">ReactiveX</a> (also known as Reactive Extensions) was created by Microsoft. It is a library for composing asynchronous and event-based programs by using observable sequences.</p>
-<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><p><img src="https://cdn.prod.website-files.com/5db1c0d5ca3871e8fd1a7b66/5e4d450cb81b57a86a36500c_--------------2018-07-26---13-21-17.png" alt="Flow"></p>
-<p>In RxSwift, there are Observable and Observer. One or more Observers will subscribe to an Observable. The Observable will notify events to those Observers. To make it easy, I clarify them below:</p>
-<ul>
-<li>Observable: A sequence that emits events over time.</li>
-<li>Observer: An entity that watches an Observable and reacts to its events.</li>
-</ul>
-<p>There are other libraries that can be used with RxSwift.</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">┌──────────────┐    ┌──────────────┐</span><br><span class="line">│   RxCocoa    ├────▶   RxRelay    │</span><br><span class="line">└───────┬──────┘    └──────┬───────┘</span><br><span class="line">        │                  │        </span><br><span class="line">┌───────▼──────────────────▼───────┐</span><br><span class="line">│             RxSwift              │</span><br><span class="line">└───────▲──────────────────▲───────┘</span><br><span class="line">        │                  │        </span><br><span class="line">┌───────┴──────┐    ┌──────┴───────┐</span><br><span class="line">│    RxTest    │    │  RxBlocking  │</span><br><span class="line">└──────────────┘    └──────────────┘</span><br></pre></td></tr></table></figure>
-
-<ul>
-<li>RxCocoa: Provides Cocoa-specific capabilities for general iOS&#x2F;macOS&#x2F;watchOS &amp; tvOS app development, such as Shared Sequences, Traits, and much more.</li>
-<li>RxRelay: Provides PublishRelay, BehaviorRelay and ReplayRelay, three simple wrappers around Subjects.</li>
-<li>RxTest and RxBlocking: Provides testing capabilities for Rx-based systems.</li>
-</ul>
-<p>The above is for new developer who wants to know about RxSwift. I’ll tell more on new post.</p>
-<h2 id="TL-DR"><a href="#TL-DR" class="headerlink" title="TL;DR"></a>TL;DR</h2><p>Previously, I just introduced the relationship between Observable and Observer. There are many Observables we can use, and also Observers. I’ll show them below.</p>
-<h3 id="Observables"><a href="#Observables" class="headerlink" title="Observables"></a>Observables</h3><ul>
-<li>Observable: Emit multiple events  <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">let numbers: Observable&lt;Int&gt; = Observable.create &#123; observer -&gt; Disposable in</span><br><span class="line">    observer.onNext(0)</span><br><span class="line">    observer.onNext(1)</span><br><span class="line">    observer.onNext(2)</span><br><span class="line">    observer.onCompleted()</span><br><span class="line">    return Disposables.create()</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
-<li>Single: Emit only one event  <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">func getRepo(_ repo: String) -&gt; Single&lt;[String: Any]&gt; &#123;</span><br><span class="line">    return Single&lt;[String: Any]&gt;.create &#123; single in</span><br><span class="line">        let url = URL(string: &quot;...&quot;)!</span><br><span class="line">        let task = URLSession.shared.dataTask(with: url) &#123;</span><br><span class="line">            data, _, error in</span><br><span class="line">            ...</span><br><span class="line">            // single(.failure(error))</span><br><span class="line">            single(.success(result))</span><br><span class="line">        &#125;</span><br><span class="line">        task.resume()</span><br><span class="line">        return Disposables.create &#123; task.cancel() &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
-<li>Others: Completable, Maybe, Driver, Signal, ControlEvent</li>
-</ul>
-<h3 id="Observers"><a href="#Observers" class="headerlink" title="Observers"></a>Observers</h3><ul>
-<li>AnyObserver: Received the events from Observable with error  <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">tap.subscribe(onNext: &#123; [weak self] in</span><br><span class="line">    self?.showAlert()</span><br><span class="line">&#125;, onError: &#123; error in</span><br><span class="line">    print(&quot;Error: \(error.localizedDescription)&quot;)</span><br><span class="line">&#125;, onCompleted: &#123;</span><br><span class="line">    print(&quot;Done&quot;)</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure></li>
-<li>Binder: Bind the result of Observable event directly to the assigned object  <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">usernameValid</span><br><span class="line">    .bind(to: usernameValidOutlet.rx.isHidden)</span><br><span class="line">    .disposed(by: disposeBag)</span><br></pre></td></tr></table></figure></li>
-</ul>
-<p>Next, I’ll show more details, like DisposeBag, Publisher, Subject, etc.</p>
-
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/2024/09/12/RxSwift-for-Beginner/#more" rel="contents">
+                Read more &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
       
     </div>
 
