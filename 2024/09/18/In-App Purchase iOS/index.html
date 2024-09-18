@@ -20,26 +20,42 @@
 
 <script class="next-config" data-name="main" type="application/json">{"hostname":"e7fendy.github.io","root":"/","images":"/images","scheme":"Mist","darkmode":false,"version":"8.20.0","exturl":false,"sidebar":{"position":"left","width_expanded":320,"width_dual_column":280,"display":"post","padding":18,"offset":12},"hljswrap":true,"copycode":{"enable":true,"style":null},"fold":{"enable":false,"height":500},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"menu_item":"fadeInDown","post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"i18n":{"placeholder":"Searching...","empty":"We didn't find any results for the search: ${query}","hits_time":"${hits} results found in ${time} ms","hits":"${hits} results found"}}</script><script src="/js/config.js"></script>
 
-    <meta name="description" content="Blog for mobile developers">
-<meta property="og:type" content="website">
-<meta property="og:title" content="Fendy Wu">
-<meta property="og:url" content="https://e7fendy.github.io/index.html">
+    <meta name="description" content="OverviewIn-App Purchase (IAP) is an easy way to do some transactions without knowing the transaction between app and bank. In other words, the transaction will be handled by Apple. Before starting, t">
+<meta property="og:type" content="article">
+<meta property="og:title" content="[iOS] In-App Purchase">
+<meta property="og:url" content="https://e7fendy.github.io/2024/09/18/In-App%20Purchase%20iOS/index.html">
 <meta property="og:site_name" content="Fendy Wu">
-<meta property="og:description" content="Blog for mobile developers">
+<meta property="og:description" content="OverviewIn-App Purchase (IAP) is an easy way to do some transactions without knowing the transaction between app and bank. In other words, the transaction will be handled by Apple. Before starting, t">
 <meta property="og:locale" content="en_US">
+<meta property="og:image" content="https://developer.apple.com/in-app-purchase/images/lockup-hero-large_2x.png">
+<meta property="og:image" content="https://docs-assets.developer.apple.com/published/44a2bc3082/storeKit_InApp_Purchase_Overview_2x@2x.png">
+<meta property="og:image" content="https://bugfender.com/wp-content/uploads/2024/02/INApp_Purchase_-_Page_2-1024x364.webp">
+<meta property="og:image" content="https://docs-assets.developer.apple.com/published/5f67d2690b/IAPPG-migration-1@2x.png">
+<meta property="og:image" content="https://revenuecat.dreamhosters.com/wp-content/uploads/2022/02/60706bf8c76297fa7775ece4_5e1d78f32cfebf111c51ee1f_Untitled-da6e7b32-7097-44ea-8d08-7fa723260194.png">
+<meta property="og:image" content="https://revenuecat.dreamhosters.com/wp-content/uploads/2022/02/60706bf8c76297ad8f75ecf2_5e1d78f4a12b0a5caa85ac2b_Untitled-d292fc14-4319-4a7a-9bd1-996203fb710b.png">
+<meta property="og:image" content="https://d2duuy9yo5pldo.cloudfront.net/vizor/b45b5841-c71f-4ce8-a84d-925f22fc4656-t.png">
+<meta property="og:image" content="https://cg2010studio.com/wp-content/uploads/2018/05/ios-iap-e9a997e8ad89e799bce7a5a8-iap-verify-receipt.png">
+<meta property="og:image" content="https://miro.medium.com/v2/resize:fit:720/format:webp/1*TMDqzfThMD8sDGqyUBum0A.png">
+<meta property="og:image" content="https://www.revenuecat.com/docs/assets/images/SCR-20240327-jvrs-6dc3b6a68017f6cfc97178581812a90f.png">
+<meta property="og:image" content="https://miro.medium.com/v2/resize:fit:720/format:webp/1*9PI_PMNkvv7pg9yZOPAMuw.png">
+<meta property="og:image" content="https://miro.medium.com/v2/resize:fit:720/format:webp/1*a1YY32UQpFrZJ7WI9M41eA.png">
+<meta property="og:image" content="https://www.objc.io/images/issue-17/ReceiptStructure@2x_c1f06ab.png">
+<meta property="article:published_time" content="2024-09-18T07:18:53.000Z">
+<meta property="article:modified_time" content="2024-09-18T13:41:28.100Z">
 <meta property="article:author" content="Fendy Wu">
-<meta property="article:tag" content="fendywu,e7fendy,e7dev">
+<meta property="article:tag" content="iOS">
 <meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://developer.apple.com/in-app-purchase/images/lockup-hero-large_2x.png">
 
 
-<link rel="canonical" href="https://e7fendy.github.io/">
+<link rel="canonical" href="https://e7fendy.github.io/2024/09/18/In-App%20Purchase%20iOS/">
 
 
 
-<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":true,"isPost":false,"lang":"en","comments":"","permalink":"","path":"index.html","title":""}</script>
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"en","comments":true,"permalink":"https://e7fendy.github.io/2024/09/18/In-App%20Purchase%20iOS/","path":"2024/09/18/In-App Purchase iOS/","title":"[iOS] In-App Purchase"}</script>
 
 <script class="next-config" data-name="calendar" type="application/json">""</script>
-<title>Fendy Wu - A Developer</title>
+<title>[iOS] In-App Purchase | Fendy Wu</title>
   
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-MK9FVEWLJV"></script>
   <script class="next-config" data-name="google_analytics" type="application/json">{"tracking_id":"G-MK9FVEWLJV","only_pageview":false,"measure_protocol_api_secret":null}</script>
@@ -75,7 +91,7 @@
 
     <a href="/" class="brand" rel="start">
       <i class="logo-line"></i>
-      <h1 class="site-title">Fendy Wu</h1>
+      <p class="site-title">Fendy Wu</p>
       <i class="logo-line"></i>
     </a>
       <p class="site-subtitle" itemprop="description">A Developer</p>
@@ -102,7 +118,7 @@
   
   <aside class="sidebar">
 
-    <div class="sidebar-inner sidebar-overview-active">
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
       <ul class="sidebar-nav">
         <li class="sidebar-nav-toc">
           Table of Contents
@@ -115,6 +131,7 @@
       <div class="sidebar-panel-container">
         <!--noindex-->
         <div class="post-toc-wrap sidebar-panel">
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Overview"><span class="nav-number">1.</span> <span class="nav-text">Overview</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Products"><span class="nav-number">1.1.</span> <span class="nav-text">Products</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Transaction"><span class="nav-number">1.2.</span> <span class="nav-text">Transaction</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Payment-Flow"><span class="nav-number">1.2.1.</span> <span class="nav-text">Payment Flow</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Validation-Flow"><span class="nav-number">1.2.2.</span> <span class="nav-text">Validation Flow</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#User-Receipt"><span class="nav-number">1.2.3.</span> <span class="nav-text">User Receipt</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Apple-Store-Receipt-File"><span class="nav-number">1.2.4.</span> <span class="nav-text">Apple Store Receipt File</span></a></li></ol></li></ol></li></ol></div>
         </div>
         <!--/noindex-->
 
@@ -159,16 +176,17 @@
 
     </div>
 
-    <div class="main-inner index posts-expand">
+    <div class="main-inner post posts-expand">
 
-    
+
+  
 
 
 <div class="post-block">
   
   
 
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="en">
     <link itemprop="mainEntityOfPage" href="https://e7fendy.github.io/2024/09/18/In-App%20Purchase%20iOS/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -182,13 +200,13 @@
     </span>
 
     <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content="undefined | Fendy Wu">
+      <meta itemprop="name" content="[iOS] In-App Purchase | Fendy Wu">
       <meta itemprop="description" content="">
     </span>
       <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/2024/09/18/In-App%20Purchase%20iOS/" class="post-title-link" itemprop="url">[iOS] In-App Purchase</a>
-        </h2>
+        <h1 class="post-title" itemprop="name headline">
+          [iOS] In-App Purchase
+        </h1>
 
         <div class="post-meta-container">
           <div class="post-meta">
@@ -225,8 +243,7 @@
     
     
     
-    <div class="post-body" itemprop="articleBody">
-          <p><img src="https://developer.apple.com/in-app-purchase/images/lockup-hero-large_2x.png" alt="Headline"></p>
+    <div class="post-body" itemprop="articleBody"><p><img src="https://developer.apple.com/in-app-purchase/images/lockup-hero-large_2x.png" alt="Headline"></p>
 <h1 id="Overview"><a href="#Overview" class="headerlink" title="Overview"></a>Overview</h1><p>In-App Purchase (IAP) is an easy way to do some transactions without knowing the transaction between app and bank. In other words, the transaction will be handled by Apple. Before starting, there are somethings to be known:</p>
 <ul>
 <li>The products, like digital items, subscription, feature-enabled, must use iOS In-app purchase.</li>
@@ -278,7 +295,6 @@
 <p>After the validation, the receipt info can be parsed correctly. For more, you can check <a target="_blank" rel="noopener" href="https://medium.com/revenuecat-blog/dissecting-an-app-store-receipt-b1e9c5136482">https://medium.com/revenuecat-blog/dissecting-an-app-store-receipt-b1e9c5136482</a> by RevenueCat.</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br></pre></td><td class="code"><pre><span class="line">&#123;&#x27;application_version&#x27;: &#x27;1&#x27;,</span><br><span class="line"> &#x27;bundle_id&#x27;: &#x27;com.jacobeiting.subtester&#x27;,</span><br><span class="line"> &#x27;creation_date&#x27;: &#x27;2017-10-03T00:58:43Z&#x27;,</span><br><span class="line"> &#x27;in_app&#x27;: [&#123;&#x27;cancellation_date&#x27;: &#x27;&#x27;,</span><br><span class="line">             &#x27;expires_date&#x27;: &#x27;2017-10-02T23:16:23Z&#x27;,</span><br><span class="line">             &#x27;original_purchase_date&#x27;: &#x27;2017-10-02T23:08:25Z&#x27;,</span><br><span class="line">             &#x27;original_transaction_id&#x27;: &#x27;1000000339835086&#x27;,</span><br><span class="line">             &#x27;product_id&#x27;: &#x27;onemonth_freetrial&#x27;,</span><br><span class="line">             &#x27;purchase_date&#x27;: &#x27;2017-10-02T23:11:23Z&#x27;,</span><br><span class="line">             &#x27;quantity&#x27;: 1,</span><br><span class="line">             &#x27;transaction_id&#x27;: &#x27;1000000339835183&#x27;,</span><br><span class="line">             &#x27;web_order_line_item_id&#x27;: 1000000036447552&#125;,</span><br><span class="line">            &#123;&#x27;cancellation_date&#x27;: &#x27;&#x27;,</span><br><span class="line">             &#x27;expires_date&#x27;: &#x27;2017-10-02T23:21:23Z&#x27;,</span><br><span class="line">             &#x27;original_purchase_date&#x27;: &#x27;2017-10-02T23:08:25Z&#x27;,</span><br><span class="line">             &#x27;original_transaction_id&#x27;: &#x27;1000000339835086&#x27;,</span><br><span class="line">             &#x27;product_id&#x27;: &#x27;onemonth_freetrial&#x27;,</span><br><span class="line">             &#x27;purchase_date&#x27;: &#x27;2017-10-02T23:16:23Z&#x27;,</span><br><span class="line">             &#x27;quantity&#x27;: 1,</span><br><span class="line">             &#x27;transaction_id&#x27;: &#x27;1000000339835291&#x27;,</span><br><span class="line">             &#x27;web_order_line_item_id&#x27;: 1000000036447572&#125;,</span><br><span class="line">            &#123;&#x27;cancellation_date&#x27;: &#x27;&#x27;,</span><br><span class="line">             &#x27;expires_date&#x27;: &#x27;2017-10-02T23:11:23Z&#x27;,</span><br><span class="line">             &#x27;original_purchase_date&#x27;: &#x27;2017-10-02T23:08:25Z&#x27;,</span><br><span class="line">             &#x27;original_transaction_id&#x27;: &#x27;1000000339835086&#x27;,</span><br><span class="line">             &#x27;product_id&#x27;: &#x27;onemonth_freetrial&#x27;,</span><br><span class="line">             &#x27;purchase_date&#x27;: &#x27;2017-10-02T23:08:23Z&#x27;,</span><br><span class="line">             &#x27;quantity&#x27;: 1,</span><br><span class="line">             &#x27;transaction_id&#x27;: &#x27;1000000339835086&#x27;,</span><br><span class="line">             &#x27;web_order_line_item_id&#x27;: 1000000036447550&#125;],</span><br><span class="line"> &#x27;opaque_value&#x27;: b&#x27;\xdb\x81(\xb1=\xce.&lt;i\xbdkS\xc6\xbe%\x08&#x27;,</span><br><span class="line"> &#x27;original_application_version&#x27;: &#x27;1.0&#x27;,</span><br><span class="line"> &#x27;sha1_hash&#x27;: b&#x27;,\x88\x7f\x9f4\x1b\xc2\xa9W\x18\x1d\x81\x1c%\xbb\x91&quot;*\xe97&#x27;&#125;</span><br></pre></td></tr></table></figure>
 
-      
     </div>
 
     
@@ -286,225 +302,26 @@
     
 
     <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
+          <div class="post-tags">
+              <a href="/tags/iOS/" rel="tag"><i class="fa fa-tag"></i> iOS</a>
+          </div>
 
+        
+  <div class="social-like a2a_kit a2a_kit_size_32 a2a_default_style">
+    <a class="a2a_dd" target="_blank" rel="noopener" href="https://www.addtoany.com/share"></a>
+      <a class="a2a_button_facebook"></a>
+      <a class="a2a_button_twitter"></a>
+  </div>
 
-
-
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="https://e7fendy.github.io/2024/09/13/iOS-Custom-back-button-with-back-gesture/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.jpg">
-      <meta itemprop="name" content="Fendy Wu">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Fendy Wu">
-      <meta itemprop="description" content="Blog for mobile developers">
-    </span>
-
-    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content="undefined | Fendy Wu">
-      <meta itemprop="description" content="">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/2024/09/13/iOS-Custom-back-button-with-back-gesture/" class="post-title-link" itemprop="url">[iOS] Custom back button with back gesture</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">Posted on</span>
-
-      <time title="Created: 2024-09-13 15:12:21" itemprop="dateCreated datePublished" datetime="2024-09-13T15:12:21+08:00">2024-09-13</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar-check"></i>
-      </span>
-      <span class="post-meta-item-text">Edited on</span>
-      <time title="Modified: 2024-09-18 09:24:12" itemprop="dateModified" datetime="2024-09-18T09:24:12+08:00">2024-09-18</time>
-    </span>
-
-  
-  
-  <span class="post-meta-item">
-    
-      <span class="post-meta-item-icon">
-        <i class="far fa-comment"></i>
-      </span>
-      <span class="post-meta-item-text">Disqus: </span>
-    
-    <a title="disqus" href="/2024/09/13/iOS-Custom-back-button-with-back-gesture/#disqus_thread" itemprop="discussionUrl">
-      <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2024/09/13/iOS-Custom-back-button-with-back-gesture/" itemprop="commentCount"></span>
-    </a>
-  </span>
-  
-  
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <p><img src="https://qiita-image-store.s3.ap-northeast-1.amazonaws.com/0/41979/38ab18db-6d92-9c06-4838-9ee6b2df5187.png" alt="Img"></p>
-<p>When I want to change the default iOS back button, I need to hide the default back button. This causes the back gesture is also disabled. Therefore, I need to keep the back gesture and make the change.</p>
-<p>To make these happen, I do steps:</p>
-<ul>
-<li>Disable the default back button</li>
-<li>Set the new back button to left bar item</li>
-<li>Enable the navigation interaction gesture for back gesture</li>
-</ul>
-<p>Here is the codes (Swift 5)</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">class MyViewController: UIGestureRecognizerDelegate &#123;</span><br><span class="line">  self.navigationItem.hidesBackButton = true</span><br><span class="line"></span><br><span class="line">  let image = UIImage(systemName: &quot;chevron.backward&quot;)</span><br><span class="line">  let backBarItem = UIBarButtonItem(image: image, style: .plain, target: nil, action: nil)</span><br><span class="line">  self.navigationItem.leftBarButtonItem = backBarItem</span><br><span class="line"></span><br><span class="line">  self.navigationController?.interactivePopGestureRecognizer?.delegate = self</span><br><span class="line">  </span><br><span class="line">  func gestureRecognizer(_ gestureRecognizer: UIGestureRecognizer, shouldBeRequiredToFailBy otherGestureRecognizer: UIGestureRecognizer) -&gt; Bool &#123;</span><br><span class="line">     return true</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="https://e7fendy.github.io/2024/09/12/RxSwift-for-Beginner/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.jpg">
-      <meta itemprop="name" content="Fendy Wu">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Fendy Wu">
-      <meta itemprop="description" content="Blog for mobile developers">
-    </span>
-
-    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content="undefined | Fendy Wu">
-      <meta itemprop="description" content="">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/2024/09/12/RxSwift-for-Beginner/" class="post-title-link" itemprop="url">RxSwift for Beginner</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">Posted on</span>
-
-      <time title="Created: 2024-09-12 11:24:02" itemprop="dateCreated datePublished" datetime="2024-09-12T11:24:02+08:00">2024-09-12</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar-check"></i>
-      </span>
-      <span class="post-meta-item-text">Edited on</span>
-      <time title="Modified: 2024-09-18 18:04:42" itemprop="dateModified" datetime="2024-09-18T18:04:42+08:00">2024-09-18</time>
-    </span>
-
-  
-  
-  <span class="post-meta-item">
-    
-      <span class="post-meta-item-icon">
-        <i class="far fa-comment"></i>
-      </span>
-      <span class="post-meta-item-text">Disqus: </span>
-    
-    <a title="disqus" href="/2024/09/12/RxSwift-for-Beginner/#disqus_thread" itemprop="discussionUrl">
-      <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2024/09/12/RxSwift-for-Beginner/" itemprop="commentCount"></span>
-    </a>
-  </span>
-  
-  
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <p><img src="https://repository-images.githubusercontent.com/33569135/fc5b4f00-4c4c-11eb-837b-fdda10a8f788" alt="RxSwift"></p>
-<p>Thinking of clean architecture, MVVM architecture is one of the best choices. One of the popular framework to do it is using functional programming. In iOS, I will use RxSwift. Before starting it, I need to know some basic knowledges of RxSwift.</p>
-<h2 id="Introduction"><a href="#Introduction" class="headerlink" title="Introduction"></a>Introduction</h2><p>RxSwift is a reactive programming or functional programming for Swift, a part of <a target="_blank" rel="noopener" href="https://reactivex.io/">ReactiveX</a>.</p>
-<p>In 2011, <a target="_blank" rel="noopener" href="https://reactivex.io/">ReactiveX</a> (also known as Reactive Extensions) was created by Microsoft. It is a library for composing asynchronous and event-based programs by using observable sequences.</p>
-<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><p><img src="https://cdn.prod.website-files.com/5db1c0d5ca3871e8fd1a7b66/5e4d450cb81b57a86a36500c_--------------2018-07-26---13-21-17.png" alt="Flow"></p>
-<p>In RxSwift, there are Observable and Observer. One or more Observers will subscribe to an Observable. The Observable will notify events to those Observers. To make it easy, I clarify them below:</p>
-<ul>
-<li>Observable: A sequence that emits events over time.</li>
-<li>Observer: An entity that watches an Observable and reacts to its events.</li>
-</ul>
-<p>There are other libraries that can be used with RxSwift.</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">┌──────────────┐    ┌──────────────┐</span><br><span class="line">│   RxCocoa    ├────▶   RxRelay    │</span><br><span class="line">└───────┬──────┘    └──────┬───────┘</span><br><span class="line">        │                  │        </span><br><span class="line">┌───────▼──────────────────▼───────┐</span><br><span class="line">│             RxSwift              │</span><br><span class="line">└───────▲──────────────────▲───────┘</span><br><span class="line">        │                  │        </span><br><span class="line">┌───────┴──────┐    ┌──────┴───────┐</span><br><span class="line">│    RxTest    │    │  RxBlocking  │</span><br><span class="line">└──────────────┘    └──────────────┘</span><br></pre></td></tr></table></figure>
-
-<ul>
-<li>RxCocoa: Provides Cocoa-specific capabilities for general iOS&#x2F;macOS&#x2F;watchOS &amp; tvOS app development, such as Shared Sequences, Traits, and much more.</li>
-<li>RxRelay: Provides PublishRelay, BehaviorRelay and ReplayRelay, three simple wrappers around Subjects.</li>
-<li>RxTest and RxBlocking: Provides testing capabilities for Rx-based systems.</li>
-</ul>
-<p>The above is for new developer who wants to know about RxSwift. I’ll tell more on new post.</p>
-<h2 id="TL-DR"><a href="#TL-DR" class="headerlink" title="TL;DR"></a>TL;DR</h2><p>Previously, I just introduced the relationship between Observable and Observer. There are many Observables we can use, and also Observers. I’ll show them below.</p>
-<h3 id="Observables"><a href="#Observables" class="headerlink" title="Observables"></a>Observables</h3><ul>
-<li>Observable: Emit multiple events  <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">let numbers: Observable&lt;Int&gt; = Observable.create &#123; observer -&gt; Disposable in</span><br><span class="line">    observer.onNext(0)</span><br><span class="line">    observer.onNext(1)</span><br><span class="line">    observer.onNext(2)</span><br><span class="line">    observer.onCompleted()</span><br><span class="line">    return Disposables.create()</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
-<li>Single: Emit only one event  <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">func getRepo(_ repo: String) -&gt; Single&lt;[String: Any]&gt; &#123;</span><br><span class="line">    return Single&lt;[String: Any]&gt;.create &#123; single in</span><br><span class="line">        let url = URL(string: &quot;...&quot;)!</span><br><span class="line">        let task = URLSession.shared.dataTask(with: url) &#123;</span><br><span class="line">            data, _, error in</span><br><span class="line">            ...</span><br><span class="line">            // single(.failure(error))</span><br><span class="line">            single(.success(result))</span><br><span class="line">        &#125;</span><br><span class="line">        task.resume()</span><br><span class="line">        return Disposables.create &#123; task.cancel() &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
-<li>Others: Completable, Maybe, Driver, Signal, ControlEvent</li>
-</ul>
-<h3 id="Observers"><a href="#Observers" class="headerlink" title="Observers"></a>Observers</h3><ul>
-<li>AnyObserver: Received the events from Observable with error  <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">tap.subscribe(onNext: &#123; [weak self] in</span><br><span class="line">    self?.showAlert()</span><br><span class="line">&#125;, onError: &#123; error in</span><br><span class="line">    print(&quot;Error: \(error.localizedDescription)&quot;)</span><br><span class="line">&#125;, onCompleted: &#123;</span><br><span class="line">    print(&quot;Done&quot;)</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure></li>
-<li>Binder: Bind the result of Observable event directly to the assigned object  <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">usernameValid</span><br><span class="line">    .bind(to: usernameValidOutlet.rx.isHidden)</span><br><span class="line">    .disposed(by: disposeBag)</span><br></pre></td></tr></table></figure></li>
-</ul>
-<p>Next, I’ll show more details, like DisposeBag, Publisher, Subject, etc.</p>
-
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
+          <div class="post-nav">
+            <div class="post-nav-item">
+                <a href="/2024/09/13/iOS-Custom-back-button-with-back-gesture/" rel="prev" title="[iOS] Custom back button with back gesture">
+                  <i class="fa fa-angle-left"></i> [iOS] Custom back button with back gesture
+                </a>
+            </div>
+            <div class="post-nav-item">
+            </div>
+          </div>
     </footer>
   </article>
 </div>
@@ -513,6 +330,12 @@
 
 
 
+
+    
+  <div class="comments" id="disqus_thread">
+    <noscript>Please enable JavaScript to view the comments powered by Disqus.</noscript>
+  </div>
+  
 </div>
   </main>
 
