@@ -2,6 +2,15 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>https://e7fendy.github.io/2024/09/19/Whats-new-with-iOS18/</loc>
+    
+    <lastmod>2024-09-18</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
     <loc>https://e7fendy.github.io/2024/07/12/My-Flutter-Project/</loc>
     
     <lastmod>2024-09-18</lastmod>
@@ -64,6 +73,13 @@
   
   <url>
     <loc>https://e7fendy.github.io/tags/iOS/</loc>
+    <lastmod>2024-09-18</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://e7fendy.github.io/tags/iOS18/</loc>
     <lastmod>2024-09-18</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
