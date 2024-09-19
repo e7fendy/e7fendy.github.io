@@ -23,7 +23,7 @@
     <meta name="description" content="OverviewIn-App Purchase (IAP) is an easy way to do some transactions without knowing the transaction between app and bank. In other words, the transaction will be handled by Apple. Before starting, t">
 <meta property="og:type" content="article">
 <meta property="og:title" content="[iOS] In-App Purchase">
-<meta property="og:url" content="https://e7fendy.github.io/2024/09/18/In-App-Purchase-iOS/index.html">
+<meta property="og:url" content="https://e7fendy.github.io/2024/09/20/In-App-Purchase-iOS/index.html">
 <meta property="og:site_name" content="Fendy Wu">
 <meta property="og:description" content="OverviewIn-App Purchase (IAP) is an easy way to do some transactions without knowing the transaction between app and bank. In other words, the transaction will be handled by Apple. Before starting, t">
 <meta property="og:locale" content="en_US">
@@ -40,19 +40,23 @@
 <meta property="og:image" content="https://miro.medium.com/v2/resize:fit:720/format:webp/1*9PI_PMNkvv7pg9yZOPAMuw.png">
 <meta property="og:image" content="https://miro.medium.com/v2/resize:fit:720/format:webp/1*a1YY32UQpFrZJ7WI9M41eA.png">
 <meta property="og:image" content="https://www.objc.io/images/issue-17/ReceiptStructure@2x_c1f06ab.png">
-<meta property="article:published_time" content="2024-09-18T07:18:53.000Z">
-<meta property="article:modified_time" content="2024-09-18T13:48:31.358Z">
+<meta property="og:image" content="https://miro.medium.com/v2/resize:fit:1400/format:webp/1*TFMCdCRoCfxj6cN2wn-Deg.png">
+<meta property="og:image" content="https://link-man.net/wp-content/uploads/2020/08/testflighticon.jpg">
+<meta property="og:image" content="https://revenuecat.dreamhosters.com/wp-content/uploads/2022/02/60706bf8c7629719a575ed04_5e1d760fd91bf43a74145c1c_Untitled-3b8ea075-1661-4984-9e12-eb5a646884a5.png">
+<meta property="og:image" content="https://revenuecat.dreamhosters.com/wp-content/uploads/2022/02/60706bf8c76297158075ec6e_5e1d760f5caa27ed494d5b50_Untitled-9e3f71fa-c78c-479e-912e-088dd5bc13a0.png">
+<meta property="article:published_time" content="2024-09-20T07:18:53.000Z">
+<meta property="article:modified_time" content="2024-09-19T01:32:40.259Z">
 <meta property="article:author" content="Fendy Wu">
 <meta property="article:tag" content="iOS">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:image" content="https://developer.apple.com/in-app-purchase/images/lockup-hero-large_2x.png">
 
 
-<link rel="canonical" href="https://e7fendy.github.io/2024/09/18/In-App-Purchase-iOS/">
+<link rel="canonical" href="https://e7fendy.github.io/2024/09/20/In-App-Purchase-iOS/">
 
 
 
-<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"en","comments":true,"permalink":"https://e7fendy.github.io/2024/09/18/In-App-Purchase-iOS/","path":"2024/09/18/In-App-Purchase-iOS/","title":"[iOS] In-App Purchase"}</script>
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"en","comments":true,"permalink":"https://e7fendy.github.io/2024/09/20/In-App-Purchase-iOS/","path":"2024/09/20/In-App-Purchase-iOS/","title":"[iOS] In-App Purchase"}</script>
 
 <script class="next-config" data-name="calendar" type="application/json">""</script>
 <title>[iOS] In-App Purchase | Fendy Wu</title>
@@ -131,7 +135,7 @@
       <div class="sidebar-panel-container">
         <!--noindex-->
         <div class="post-toc-wrap sidebar-panel">
-            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Overview"><span class="nav-number">1.</span> <span class="nav-text">Overview</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Products"><span class="nav-number">1.1.</span> <span class="nav-text">Products</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Transaction"><span class="nav-number">1.2.</span> <span class="nav-text">Transaction</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Payment-Flow"><span class="nav-number">1.2.1.</span> <span class="nav-text">Payment Flow</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Validation-Flow"><span class="nav-number">1.2.2.</span> <span class="nav-text">Validation Flow</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#User-Receipt"><span class="nav-number">1.2.3.</span> <span class="nav-text">User Receipt</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Apple-Store-Receipt-File"><span class="nav-number">1.2.4.</span> <span class="nav-text">Apple Store Receipt File</span></a></li></ol></li></ol></li></ol></div>
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Overview"><span class="nav-number">1.</span> <span class="nav-text">Overview</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Products"><span class="nav-number">1.1.</span> <span class="nav-text">Products</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Transaction"><span class="nav-number">1.2.</span> <span class="nav-text">Transaction</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Payment-Flow"><span class="nav-number">1.2.1.</span> <span class="nav-text">Payment Flow</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Validation-Flow"><span class="nav-number">1.2.2.</span> <span class="nav-text">Validation Flow</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#User-Receipt"><span class="nav-number">1.2.3.</span> <span class="nav-text">User Receipt</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Apple-Store-Receipt-File"><span class="nav-number">1.2.4.</span> <span class="nav-text">Apple Store Receipt File</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Testing"><span class="nav-number">1.3.</span> <span class="nav-text">Testing</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Sandbox-Accounts"><span class="nav-number">1.3.1.</span> <span class="nav-text">Sandbox Accounts</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#TestFlight"><span class="nav-number">1.3.2.</span> <span class="nav-text">TestFlight</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Environments"><span class="nav-number">1.3.3.</span> <span class="nav-text">Environments</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Purchasing-UI"><span class="nav-number">1.3.4.</span> <span class="nav-text">Purchasing UI</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#App-Store-Server-API-1-0"><span class="nav-number">2.</span> <span class="nav-text">App Store Server API 1.0</span></a></li></ol></div>
         </div>
         <!--/noindex-->
 
@@ -187,7 +191,7 @@
   
 
   <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="en">
-    <link itemprop="mainEntityOfPage" href="https://e7fendy.github.io/2024/09/18/In-App-Purchase-iOS/">
+    <link itemprop="mainEntityOfPage" href="https://e7fendy.github.io/2024/09/20/In-App-Purchase-iOS/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.jpg">
@@ -215,9 +219,15 @@
         <i class="far fa-calendar"></i>
       </span>
       <span class="post-meta-item-text">Posted on</span>
-      
 
-      <time title="Created: 2024-09-18 15:18:53 / Modified: 21:48:31" itemprop="dateCreated datePublished" datetime="2024-09-18T15:18:53+08:00">2024-09-18</time>
+      <time title="Created: 2024-09-20 15:18:53" itemprop="dateCreated datePublished" datetime="2024-09-20T15:18:53+08:00">2024-09-20</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">Edited on</span>
+      <time title="Modified: 2024-09-19 09:32:40" itemprop="dateModified" datetime="2024-09-19T09:32:40+08:00">2024-09-19</time>
     </span>
 
   
@@ -229,8 +239,8 @@
       </span>
       <span class="post-meta-item-text">Disqus: </span>
     
-    <a title="disqus" href="/2024/09/18/In-App-Purchase-iOS/#disqus_thread" itemprop="discussionUrl">
-      <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2024/09/18/In-App-Purchase-iOS/" itemprop="commentCount"></span>
+    <a title="disqus" href="/2024/09/20/In-App-Purchase-iOS/#disqus_thread" itemprop="discussionUrl">
+      <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2024/09/20/In-App-Purchase-iOS/" itemprop="commentCount"></span>
     </a>
   </span>
   
@@ -269,7 +279,7 @@
 <p><img src="https://docs-assets.developer.apple.com/published/5f67d2690b/IAPPG-migration-1@2x.png" alt="Flow"></p>
 <h3 id="Payment-Flow"><a href="#Payment-Flow" class="headerlink" title="Payment Flow"></a>Payment Flow</h3><p>To do the flow above, I need a server to store my product information and handle the payment process. I’ll use <a target="_blank" rel="noopener" href="https://www.revenuecat.com/">RevenueCat</a> as my transaction server. What the server needs to do is to <strong>validate the payment receive</strong> and <strong>update the user&#x2F;product state</strong>.</p>
 <p><img src="https://revenuecat.dreamhosters.com/wp-content/uploads/2022/02/60706bf8c76297fa7775ece4_5e1d78f32cfebf111c51ee1f_Untitled-da6e7b32-7097-44ea-8d08-7fa723260194.png" alt="Flow"></p>
-<h3 id="Validation-Flow"><a href="#Validation-Flow" class="headerlink" title="Validation Flow"></a>Validation Flow</h3><p>When user does the transaction, StoreKit will make the payment of the transaction. Meanwhile, StoreKit will also send the transaction to AppStore as a receipt. AppStore will do the receipt verification. To do so, AppStore will directly send the receipt data to our server for validation. Also, our server can store the data to update the state.</p>
+<h3 id="Validation-Flow"><a href="#Validation-Flow" class="headerlink" title="Validation Flow"></a>Validation Flow</h3><p>When user does the transaction, StoreKit will make the payment of the transaction. Meanwhile, StoreKit will also send the transaction to AppStore as a receipt. AppStore will do the receipt verification. To do so, AppStore will send the receipt data to our server for validation using <a target="_blank" rel="noopener" href="https://developer.apple.com/documentation/appstoreservernotifications">App Store Server Notifications</a>. Also, our server can store the data to update the state.</p>
 <p><img src="https://revenuecat.dreamhosters.com/wp-content/uploads/2022/02/60706bf8c76297ad8f75ecf2_5e1d78f4a12b0a5caa85ac2b_Untitled-d292fc14-4319-4a7a-9bd1-996203fb710b.png" alt="Flow"></p>
 <h3 id="User-Receipt"><a href="#User-Receipt" class="headerlink" title="User Receipt"></a>User Receipt</h3><p>On the other hand, the user will receive the receipt that looks like this.</p>
 <p><img src="https://d2duuy9yo5pldo.cloudfront.net/vizor/b45b5841-c71f-4ce8-a84d-925f22fc4656-t.png" alt="Receipt"></p>
@@ -296,6 +306,44 @@
 <p>After the validation, the receipt info can be parsed correctly. For more, you can check <a target="_blank" rel="noopener" href="https://medium.com/revenuecat-blog/dissecting-an-app-store-receipt-b1e9c5136482">https://medium.com/revenuecat-blog/dissecting-an-app-store-receipt-b1e9c5136482</a> by RevenueCat.</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br></pre></td><td class="code"><pre><span class="line">&#123;&#x27;application_version&#x27;: &#x27;1&#x27;,</span><br><span class="line"> &#x27;bundle_id&#x27;: &#x27;com.jacobeiting.subtester&#x27;,</span><br><span class="line"> &#x27;creation_date&#x27;: &#x27;2017-10-03T00:58:43Z&#x27;,</span><br><span class="line"> &#x27;in_app&#x27;: [&#123;&#x27;cancellation_date&#x27;: &#x27;&#x27;,</span><br><span class="line">             &#x27;expires_date&#x27;: &#x27;2017-10-02T23:16:23Z&#x27;,</span><br><span class="line">             &#x27;original_purchase_date&#x27;: &#x27;2017-10-02T23:08:25Z&#x27;,</span><br><span class="line">             &#x27;original_transaction_id&#x27;: &#x27;1000000339835086&#x27;,</span><br><span class="line">             &#x27;product_id&#x27;: &#x27;onemonth_freetrial&#x27;,</span><br><span class="line">             &#x27;purchase_date&#x27;: &#x27;2017-10-02T23:11:23Z&#x27;,</span><br><span class="line">             &#x27;quantity&#x27;: 1,</span><br><span class="line">             &#x27;transaction_id&#x27;: &#x27;1000000339835183&#x27;,</span><br><span class="line">             &#x27;web_order_line_item_id&#x27;: 1000000036447552&#125;,</span><br><span class="line">            &#123;&#x27;cancellation_date&#x27;: &#x27;&#x27;,</span><br><span class="line">             &#x27;expires_date&#x27;: &#x27;2017-10-02T23:21:23Z&#x27;,</span><br><span class="line">             &#x27;original_purchase_date&#x27;: &#x27;2017-10-02T23:08:25Z&#x27;,</span><br><span class="line">             &#x27;original_transaction_id&#x27;: &#x27;1000000339835086&#x27;,</span><br><span class="line">             &#x27;product_id&#x27;: &#x27;onemonth_freetrial&#x27;,</span><br><span class="line">             &#x27;purchase_date&#x27;: &#x27;2017-10-02T23:16:23Z&#x27;,</span><br><span class="line">             &#x27;quantity&#x27;: 1,</span><br><span class="line">             &#x27;transaction_id&#x27;: &#x27;1000000339835291&#x27;,</span><br><span class="line">             &#x27;web_order_line_item_id&#x27;: 1000000036447572&#125;,</span><br><span class="line">            &#123;&#x27;cancellation_date&#x27;: &#x27;&#x27;,</span><br><span class="line">             &#x27;expires_date&#x27;: &#x27;2017-10-02T23:11:23Z&#x27;,</span><br><span class="line">             &#x27;original_purchase_date&#x27;: &#x27;2017-10-02T23:08:25Z&#x27;,</span><br><span class="line">             &#x27;original_transaction_id&#x27;: &#x27;1000000339835086&#x27;,</span><br><span class="line">             &#x27;product_id&#x27;: &#x27;onemonth_freetrial&#x27;,</span><br><span class="line">             &#x27;purchase_date&#x27;: &#x27;2017-10-02T23:08:23Z&#x27;,</span><br><span class="line">             &#x27;quantity&#x27;: 1,</span><br><span class="line">             &#x27;transaction_id&#x27;: &#x27;1000000339835086&#x27;,</span><br><span class="line">             &#x27;web_order_line_item_id&#x27;: 1000000036447550&#125;],</span><br><span class="line"> &#x27;opaque_value&#x27;: b&#x27;\xdb\x81(\xb1=\xce.&lt;i\xbdkS\xc6\xbe%\x08&#x27;,</span><br><span class="line"> &#x27;original_application_version&#x27;: &#x27;1.0&#x27;,</span><br><span class="line"> &#x27;sha1_hash&#x27;: b&#x27;,\x88\x7f\x9f4\x1b\xc2\xa9W\x18\x1d\x81\x1c%\xbb\x91&quot;*\xe97&#x27;&#125;</span><br></pre></td></tr></table></figure>
 
+<h2 id="Testing"><a href="#Testing" class="headerlink" title="Testing"></a>Testing</h2><p>Before deploying our IAP, we need to testing our IAP if it works as expected. Before starting, we need to do some preparations, like creating sandbox accounts, uploading app to TestFlight and creating environments for testing, app review and production.</p>
+<h3 id="Sandbox-Accounts"><a href="#Sandbox-Accounts" class="headerlink" title="Sandbox Accounts"></a>Sandbox Accounts</h3><p>The accounts that can buy products without any charges.<br><img src="https://miro.medium.com/v2/resize:fit:1400/format:webp/1*TFMCdCRoCfxj6cN2wn-Deg.png" alt="Sandbox"></p>
+<h3 id="TestFlight"><a href="#TestFlight" class="headerlink" title="TestFlight"></a>TestFlight</h3><p>To test our app with IAP enabled.<br><img src="https://link-man.net/wp-content/uploads/2020/08/testflighticon.jpg" alt="TestFlight"></p>
+<h3 id="Environments"><a href="#Environments" class="headerlink" title="Environments"></a>Environments</h3><p>Some environments for testing, app review and production: To use different server environment.<br><img src="https://revenuecat.dreamhosters.com/wp-content/uploads/2022/02/60706bf8c7629719a575ed04_5e1d760fd91bf43a74145c1c_Untitled-3b8ea075-1661-4984-9e12-eb5a646884a5.png" alt="Environments"></p>
+<h3 id="Purchasing-UI"><a href="#Purchasing-UI" class="headerlink" title="Purchasing UI"></a>Purchasing UI</h3><p>When purchasing the product by Sandbox accounts (the account must be signed in on your iPhone), the purchasing UI is different with production.<br><img src="https://revenuecat.dreamhosters.com/wp-content/uploads/2022/02/60706bf8c76297158075ec6e_5e1d760f5caa27ed494d5b50_Untitled-9e3f71fa-c78c-479e-912e-088dd5bc13a0.png" alt="Purchasing"></p>
+<h1 id="App-Store-Server-API-1-0"><a href="#App-Store-Server-API-1-0" class="headerlink" title="App Store Server API 1.0"></a>App Store Server API 1.0</h1><p>The old APIs (App Store Receipts API) are deprecated. The new one is called App Store Server API. You can request and provide information about your consumers’ in-app purchase. The APIs include:</p>
+<ul>
+<li>Transactions and auto-renewable subscription status.<ul>
+<li>Get the transaction info and history.</li>
+</ul>
+</li>
+<li>Refund information.<ul>
+<li>Get the refund history.</li>
+</ul>
+</li>
+<li>App Store Server Notifications history and testing.<ul>
+<li>Get the history that App Store Server notified before in past of 180 days.</li>
+</ul>
+</li>
+<li>Subscription renewal date extensions.<ul>
+<li>Used to extend the subscription for customer.</li>
+</ul>
+</li>
+<li>Order information lookup.<ul>
+<li>Get IAP information based on customer’s order ID.</li>
+</ul>
+</li>
+</ul>
+<p>There are some parameters we can use with App Store Server API:</p>
+<ul>
+<li><strong>transactionId</strong>: The identifier of a transaction that belongs to the customer.</li>
+<li><strong>originalTransactionId</strong>: The original transactionId for extended usage.</li>
+<li><strong>notificationType</strong>: The type of App Store Server notification, <a target="_blank" rel="noopener" href="https://developer.apple.com/documentation/appstoreservernotifications/notificationtype">see more details here</a>.</li>
+<li><strong>testNotificationToken</strong>: The unique token for testing.</li>
+<li><strong>orderId</strong>: The order ID for IAP that belongs to the customer.</li>
+</ul>
+<p>To use App Store Server API, we can use the <a target="_blank" rel="noopener" href="https://developer.apple.com/documentation/appstoreserverapi/simplifying_your_implementation_by_using_the_app_store_server_library">simplified library</a> that is provided by Apple. Also, there is some <a target="_blank" rel="noopener" href="https://developer.apple.com/documentation/appstoreserverapi/app_store_server_api_changelog">changelogs</a> to be followed.</p>
+
     </div>
 
     
@@ -316,14 +364,11 @@
 
           <div class="post-nav">
             <div class="post-nav-item">
-                <a href="/2024/09/13/iOS-Custom-back-button-with-back-gesture/" rel="prev" title="[iOS] Custom back button with back gesture">
-                  <i class="fa fa-angle-left"></i> [iOS] Custom back button with back gesture
+                <a href="/2024/09/19/Whats-new-with-iOS18/" rel="prev" title="What's new with iOS 18">
+                  <i class="fa fa-angle-left"></i> What's new with iOS 18
                 </a>
             </div>
             <div class="post-nav-item">
-                <a href="/2024/09/19/Whats-new-with-iOS18/" rel="next" title="What's new with iOS 18">
-                  What's new with iOS 18 <i class="fa fa-angle-right"></i>
-                </a>
             </div>
           </div>
     </footer>
