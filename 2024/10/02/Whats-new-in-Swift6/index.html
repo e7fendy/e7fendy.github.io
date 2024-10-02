@@ -20,26 +20,29 @@
 
 <script class="next-config" data-name="main" type="application/json">{"hostname":"e7fendy.github.io","root":"/","images":"/images","scheme":"Mist","darkmode":false,"version":"8.20.0","exturl":false,"sidebar":{"position":"left","width_expanded":320,"width_dual_column":280,"display":"post","padding":18,"offset":12},"hljswrap":true,"copycode":{"enable":true,"style":null},"fold":{"enable":false,"height":500},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"menu_item":"fadeInDown","post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"i18n":{"placeholder":"Searching...","empty":"We didn't find any results for the search: ${query}","hits_time":"${hits} results found in ${time} ms","hits":"${hits} results found"}}</script><script src="/js/config.js"></script>
 
-    <meta name="description" content="Blog for mobile developers">
-<meta property="og:type" content="website">
-<meta property="og:title" content="Fendy Wu">
-<meta property="og:url" content="https://e7fendy.github.io/tags/Flutter/index.html">
+    <meta name="description" content="Language and Standard Library Concurrency: New Synchronization library. Typed throws: Throws error with type. Ownership: ~Copyable syntax for non-copyable types. C++ interoperability: Bidirectional in">
+<meta property="og:type" content="article">
+<meta property="og:title" content="What&#39;s new in Swift6">
+<meta property="og:url" content="https://e7fendy.github.io/2024/10/02/Whats-new-in-Swift6/index.html">
 <meta property="og:site_name" content="Fendy Wu">
-<meta property="og:description" content="Blog for mobile developers">
+<meta property="og:description" content="Language and Standard Library Concurrency: New Synchronization library. Typed throws: Throws error with type. Ownership: ~Copyable syntax for non-copyable types. C++ interoperability: Bidirectional in">
 <meta property="og:locale" content="en_US">
+<meta property="article:published_time" content="2024-10-02T02:00:00.000Z">
+<meta property="article:modified_time" content="2024-10-02T01:06:16.492Z">
 <meta property="article:author" content="Fendy Wu">
-<meta property="article:tag" content="fendywu,e7fendy,e7dev">
+<meta property="article:tag" content="Swift">
+<meta property="article:tag" content="Apple">
 <meta name="twitter:card" content="summary">
 
 
-<link rel="canonical" href="https://e7fendy.github.io/tags/Flutter/">
+<link rel="canonical" href="https://e7fendy.github.io/2024/10/02/Whats-new-in-Swift6/">
 
 
 
-<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":false,"lang":"en","comments":"","permalink":"","path":"tags/Flutter/index.html","title":""}</script>
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"en","comments":true,"permalink":"https://e7fendy.github.io/2024/10/02/Whats-new-in-Swift6/","path":"2024/10/02/Whats-new-in-Swift6/","title":"What's new in Swift6"}</script>
 
 <script class="next-config" data-name="calendar" type="application/json">""</script>
-<title>Tag: Flutter | Fendy Wu</title>
+<title>What's new in Swift6 | Fendy Wu</title>
   
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-MK9FVEWLJV"></script>
   <script class="next-config" data-name="google_analytics" type="application/json">{"tracking_id":"G-MK9FVEWLJV","only_pageview":false,"measure_protocol_api_secret":null}</script>
@@ -102,7 +105,7 @@
   
   <aside class="sidebar">
 
-    <div class="sidebar-inner sidebar-overview-active">
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
       <ul class="sidebar-nav">
         <li class="sidebar-nav-toc">
           Table of Contents
@@ -115,6 +118,7 @@
       <div class="sidebar-panel-container">
         <!--noindex-->
         <div class="post-toc-wrap sidebar-panel">
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Language-and-Standard-Library"><span class="nav-number">1.</span> <span class="nav-text">Language and Standard Library</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Debugging"><span class="nav-number">2.</span> <span class="nav-text">Debugging</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Libraries"><span class="nav-number">3.</span> <span class="nav-text">Libraries</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Platform-support"><span class="nav-number">4.</span> <span class="nav-text">Platform support</span></a></li></ol></div>
         </div>
         <!--/noindex-->
 
@@ -159,51 +163,138 @@
 
     </div>
 
-    <div class="main-inner tag posts-collapse">
+    <div class="main-inner post posts-expand">
 
 
   
+
+
+<div class="post-block">
   
   
-  <div class="post-block">
-    <div class="post-content">
-      <div class="collection-title">
-        <h1 class="collection-header">Flutter
-          <small>Tag</small>
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="en">
+    <link itemprop="mainEntityOfPage" href="https://e7fendy.github.io/2024/10/02/Whats-new-in-Swift6/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.jpg">
+      <meta itemprop="name" content="Fendy Wu">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Fendy Wu">
+      <meta itemprop="description" content="Blog for mobile developers">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="What's new in Swift6 | Fendy Wu">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          What's new in Swift6
         </h1>
-      </div>
 
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">Posted on</span>
       
-    <div class="collection-year">
-      <span class="collection-header">2024</span>
+
+      <time title="Created: 2024-10-02 10:00:00 / Modified: 09:06:16" itemprop="dateCreated datePublished" datetime="2024-10-02T10:00:00+08:00">2024-10-02</time>
+    </span>
+
+  
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="far fa-comment"></i>
+      </span>
+      <span class="post-meta-item-text">Disqus: </span>
+    
+    <a title="disqus" href="/2024/10/02/Whats-new-in-Swift6/#disqus_thread" itemprop="discussionUrl">
+      <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2024/10/02/Whats-new-in-Swift6/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody"><h2 id="Language-and-Standard-Library"><a href="#Language-and-Standard-Library" class="headerlink" title="Language and Standard Library"></a>Language and Standard Library</h2><ol>
+<li><strong>Concurrency</strong>: New <a target="_blank" rel="noopener" href="https://developer.apple.com/documentation/synchronization">Synchronization</a> library.</li>
+<li><strong>Typed throws</strong>: Throws error with type.</li>
+<li><strong>Ownership</strong>: <code>~Copyable</code> syntax for non-copyable types.</li>
+<li><strong>C++ interoperability</strong>: Bidirectional interoperability with C++.</li>
+<li><strong>Embedded Swift</strong>: The lower level of Swift libraries for smaller binaries.</li>
+<li><strong>128-bit integers</strong>: New types of integers with signed and unsigned 128-bit integer types.</li>
+<li><strong>Productivity enhancements</strong>: New APIs to enhance the productivity.</li>
+</ol>
+<h2 id="Debugging"><a href="#Debugging" class="headerlink" title="Debugging"></a>Debugging</h2><ol>
+<li>Custom LLDB summaries with <code>@DebugDescription</code></li>
+<li>Improved startup performance with explicit modules</li>
+</ol>
+<h2 id="Libraries"><a href="#Libraries" class="headerlink" title="Libraries"></a>Libraries</h2><ol>
+<li><strong>Foundation</strong>: Some libraries are reimplemented in Swift.</li>
+<li><strong>Swift Testing</strong>: A new testing library, <a target="_blank" rel="noopener" href="https://github.com/swiftlang/swift-testing">swift-testing</a>.</li>
+</ol>
+<h2 id="Platform-support"><a href="#Platform-support" class="headerlink" title="Platform support"></a>Platform support</h2><ol>
+<li>Fully static SDK for Linux</li>
+<li>New Linux distributions for Debian, Fedora and Ubuntu 24.04</li>
+<li>Improve Windows build performance</li>
+</ol>
+
     </div>
 
-  <article itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-      <div class="post-meta-container">
-        <time itemprop="dateCreated"
-              datetime="2024-07-12T11:24:02+08:00"
-              content="2024-07-12">
-          07-12
-        </time>
-      </div>
+    
+    
+    
 
-      <div class="post-title">
-          <a class="post-title-link" href="/2024/07/12/My-Flutter-Project/" itemprop="url">
-            <span itemprop="name">My Flutter Project</span>
-          </a>
-      </div>
+    <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/Swift/" rel="tag"><i class="fa fa-tag"></i> Swift</a>
+              <a href="/tags/Apple/" rel="tag"><i class="fa fa-tag"></i> Apple</a>
+          </div>
 
-      
-    </header>
+        
+  <div class="social-like a2a_kit a2a_kit_size_32 a2a_default_style">
+    <a class="a2a_dd" target="_blank" rel="noopener" href="https://www.addtoany.com/share"></a>
+      <a class="a2a_button_facebook"></a>
+      <a class="a2a_button_twitter"></a>
+  </div>
+
+          <div class="post-nav">
+            <div class="post-nav-item">
+                <a href="/2024/09/20/In-App-Purchase-iOS/" rel="prev" title="[iOS] In-App Purchase">
+                  <i class="fa fa-angle-left"></i> [iOS] In-App Purchase
+                </a>
+            </div>
+            <div class="post-nav-item">
+            </div>
+          </div>
+    </footer>
   </article>
+</div>
 
-    </div>
+
+
+
+
+
+    
+  <div class="comments" id="disqus_thread">
+    <noscript>Please enable JavaScript to view the comments powered by Disqus.</noscript>
   </div>
   
-  
-  
-
 </div>
   </main>
 
